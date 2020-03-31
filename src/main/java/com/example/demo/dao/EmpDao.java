@@ -1,5 +1,28 @@
 package com.example.demo.dao;
 
-public class EmpDao {
+import java.util.List;
 
+import com.example.demo.db.Manager;
+import com.example.demo.vo.EmpVo;
+
+public class EmpDao {
+	public static List<EmpVo> listEmp(){
+		return Manager.listEmp();
+	}
+	
+	public static EmpVo getEmp(EmpVo e) {
+		return Manager.getEmp(e);
+	}
+	
+	public static int insertEmp(EmpVo e) {
+		return Manager.insertEmp(e);
+	}
+	
+	public static int updateEmp(EmpVo e) {
+		return Manager.updateEmp(e);
+	}
+	
+	public static int deleteEmp(EmpVo e) {
+		return Manager.deleteEmp(e);
+	}
 }
