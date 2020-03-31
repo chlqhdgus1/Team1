@@ -7,14 +7,14 @@
 <script type="text/javascript">
 	$(function(){
 		var arr;
-		$.getJSON("listEmp", function(data){
+		$.ajax("listEmp", {success:function(data){
 			arr = data;
-			listData();
-		})
-		
-		function listData(){
 			$.each(arr, function(idx, e){
+				var idx = idx;
+				//alert(arr[idx].ename);
+				var a = $("<a></a>").attr("href", "getEmp?eno="+arr[idx].eno);
 				var eno = $("<td></td>").html(e.eno);
+				$(a).append(eno);
 				var ename = $("<td></td>").html(e.ename);
 				var job = $("<td></td>").html(e.job);
 				var sal = $("<td></td>").html(e.sal);
@@ -26,17 +26,15 @@
 				var jumin = $("<td></td>").html(e.jumin);
 				
 				var tr = $("<tr></tr>");
-				$(tr).append(eno, ename, job, sal, comm, mgr, hiredate, dno, email, jumin);
+				$(tr).append(a, ename, job, sal, comm, mgr, hiredate, dno, email, jumin);
 				$("#listEmp").append(tr);
 			})
-		}
-		
-		
+		}})
 	})
 </script>
 </head>
 <body>
-	<table border=1 id="listEmp" width="500" id="listEmp">
+	<table border=1 id="listEmp" width="80%" id="listEmp">
 		<tr>
 			<th align="center">사원번호</th>
 			<th align="center">사원명</th>
