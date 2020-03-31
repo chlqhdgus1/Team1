@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.dao.EmpDao;
-import com.example.demo.vo.DeptVo;
 import com.example.demo.vo.EmpVo;
 import com.google.gson.Gson;
 
