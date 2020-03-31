@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="emp">
+  <select id="selectAll" resultType="empVo">
+    select * from emp
+  </select>
+  
+  <insert id="insert">
+	insert into emp values(#{eno},#{ename},#{job},#{sal},#{comm},#{mgr},#{hiredate},#{dno},#{jumin},#{email})
+  </insert>
+  
+  <update id="update">
+  	update emp set ename=#{ename},job=#{job},sal=#{sal},comm=#{comm},mgr=#{mgr},hiredate=#{hiredate},dno=#{dno},jumin=#{jumin},email=#{email} where eno=#{eno}
+  </update>
+  
+  <delete id="delete">
+  	delete emp where eno=#{eno}
+  </delete>
+  
+  <select id="detail" resultType="empVo">
+  	select * from emp where eno=#{eno}
+  </select>
+</mapper>
