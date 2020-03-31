@@ -13,7 +13,17 @@ public class DeptController {
 	private DeptDao dao;
 	
 	
-	@RequestMapping("/")
+	//부서등록
+	@RequestMapping(value = "/insertDept" , produces ="application/json;charset=UTF-8")
+	public String insertDept() {
+		String str ="";
+		Gson gson = new Gson();
+		str = gson.toJson(dao.insert());
+		return str;
+	}
+	
+	//부서목록
+	@RequestMapping(value = "/listDept" , produces ="application/json;charset=UTF-8")
 	public String listDept() {
 		String str ="";
 		Gson gson = new Gson();
