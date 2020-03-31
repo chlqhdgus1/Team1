@@ -10,4 +10,5 @@
   <insert id="insert">
 	insert into dept values(#{dno},#{dname},#{dloc})
   </insert>
+  <!-- adasdas -->
 </mapper>
