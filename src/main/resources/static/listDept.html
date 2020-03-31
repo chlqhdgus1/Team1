@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+
+
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+
+<script type="text/javascript">
+
+$(function(){
+	var arr;
+	$.getJSON("/deptList",function(data){
+		arr = data;
+		listData();
+	});
+	
+	function listData(){
+		// dno, dname, dloc
+		$.each(arr,function(idx,d){
+			var table = $('<table></table>');
+			var tr = $('<tr></tr>');
+			var dno = $('<td></td>').html(d.dno);
+			var dname = $('<td></td>').html(d.dname);
+			var dloc = $('<td></td>').html(d.dloc);
+			$(tr).append(dno,dname,dloc);	
+			$(table).append(tr);	
+			$('body').append(table);
+		});
+	}
+});
+</script>
+</head>
+<body>
+	
+</body>
+</html>
