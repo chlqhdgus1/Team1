@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		var arr;
+		$.getJSON("listEmp", function(data){
+			arr = data;
+			listData();
+		})
+		
+		function listData(){
+			$.each(arr, function(idx, e){
+				var eno = $("<td></td>").html(e.eno);
+				var ename = $("<td></td>").html(e.ename);
+				var job = $("<td></td>").html(e.job);
+				var sal = $("<td></td>").html(e.sal);
+				var comm = $("<td></td>").html(e.comm);
+				var mgr = $("<td></td>").html(e.mgr);
+				var hiredate = $("<td></td>").html(e.hiredate);
+				var dno = $("<td></td>").html(e.dno);
+				var email = $("<td></td>").html(e.email);
+				var jumin = $("<td></td>").html(e.jumin);
+				
+				var tr = $("<tr></tr>");
+				$(tr).append(eno, ename, job, sal, comm, mgr, hiredate, dno, email, jumin);
+				$("#listEmp").append(tr);
+			})
+		}
+		
+		
+	})
+</script>
+</head>
+<body>
+	<table border=1 id="listEmp" width="500" id="listEmp">
+		<tr>
+			<th align="center">사원번호</th>
+			<th align="center">사원명</th>
+			<th align="center">직무</th>
+			<th align="center">급여</th>
+			<th align="center">상여금</th>
+			<th align="center">관리자번호</th>
+			<th align="center">입사일</th>
+			<th align="center">부서번호</th>
+			<th align="center">이메일</th>
+			<th align="center">주민번호</th>
+		</tr>
+	</table>
+</body>
+</html>
