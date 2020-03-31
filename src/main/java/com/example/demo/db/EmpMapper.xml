@@ -13,7 +13,8 @@
   </insert>
   
   <update id="update">
-  	update emp set ename=#{ename},job=#{job},sal=#{sal},comm=#{comm},mgr=#{mgr},hiredate=#{hiredate},dno=#{dno},jumin=#{jumin},email=#{email} where eno=#{eno}
+    <!-- email jumin 순서 바꿈 -->
+  	update emp set ename=#{ename},job=#{job},sal=#{sal},comm=#{comm},mgr=#{mgr},hiredate=#{hiredate},dno=#{dno},email=#{email}, jumin=#{jumin} where eno=#{eno}
   </update>
   
   <delete id="delete">

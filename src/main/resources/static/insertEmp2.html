@@ -10,6 +10,7 @@ $(function(){
 	 	var data = $("#f").serialize()
 		$.ajax("insertEmp",{data:data,success:function(r){
 			alert(r);
+			window.location.href="listEmp.html";
 		}})
 	})
 })
@@ -25,7 +26,7 @@ $(function(){
 	급여 <input type="text" id="sal" name="sal"><br>
 	상여금 <input type="text" id="comm" name="comm"><br>
 	관리자 <input type="text" id="mgr" name="mgr"><br>
-	입사일 <input type="text" id="hiredate" name="hiredate" placeholder="00/00/00 형식"><br>
+	입사일 <input type="text" id="hiredate" name="hiredate" placeholder="11/11/11 형식"><br>
 	부서번호 <input type="text" id="dno" name="dno" placeholder="100/200/300/400"><br>
 	이메일 <input type="text" id="email" name="email"><br>
 	주민번호 <input type="text" id="jumin" name="jumin"><br>
