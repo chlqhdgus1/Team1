@@ -17,7 +17,6 @@ $(function(){
 		listData();
 	});
 	
-	
 	function listData(){
 		// dno, dname, dloc
 		$.each(arr,function(idx,d){
@@ -28,6 +27,7 @@ $(function(){
 			$(tr).append(dno,dname,dloc);	
 			$('#listDept').append(tr);
 		});
+		
 	}
 });
 </script>
