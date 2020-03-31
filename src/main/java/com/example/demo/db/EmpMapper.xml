@@ -8,7 +8,8 @@
   </select>
   
   <insert id="insert">
-	insert into emp values(#{eno},#{ename},#{job},#{sal},#{comm},#{mgr},#{hiredate},#{dno},#{jumin},#{email})
+  <!-- email jumin 순서 바꿈 -->
+	insert into emp values(#{eno},#{ename},#{job},#{sal},#{comm},#{mgr},#{hiredate},#{dno},#{email},#{jumin})
   </insert>
   
   <update id="update">

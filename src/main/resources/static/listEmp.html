@@ -7,12 +7,12 @@
 <script type="text/javascript">
 	$(function(){
 		var arr;
+
 		$.ajax("listEmp", {success:function(data){
 			arr = data;
 			$.each(arr, function(idx, e){
 				var idx = idx;
-				//alert(arr[idx].ename);
-				var a = $("<a></a>").attr("href", "getEmp?eno="+arr[idx].eno);
+				var a = $("<a></a>").attr("aa", "getEmp.html?eno="+arr[idx].eno);
 				var eno = $("<td></td>").html(e.eno);
 				$(a).append(eno);
 				var ename = $("<td></td>").html(e.ename);
@@ -25,9 +25,23 @@
 				var email = $("<td></td>").html(e.email);
 				var jumin = $("<td></td>").html(e.jumin);
 				
+				var btn = $("<button id='btn'>삭제</button>");
+				
+				var data = {eno:arr[idx].eno}
+				
+			
+				btn.on("click",function(){
+					$.ajax("deleteEmp",{data:data,success:function(r){
+						window.location.reload(true);
+					}})
+				})
+				
 				var tr = $("<tr></tr>");
-				$(tr).append(a, ename, job, sal, comm, mgr, hiredate, dno, email, jumin);
+				$(tr).append(a, ename, job, sal, comm, mgr, hiredate, dno, email, jumin,btn);
 				$("#listEmp").append(tr);
+				
+				
+				
 			})
 		}})
 	})
@@ -48,5 +62,6 @@
 			<th align="center">주민번호</th>
 		</tr>
 	</table>
+	<input type="hidden" id="in">
 </body>
 </html>
