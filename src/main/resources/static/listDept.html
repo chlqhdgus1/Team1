@@ -12,7 +12,7 @@
 
 $(function(){
 	var arr;
-	$.getJSON("/deptList",function(data){
+	$.getJSON("/listDept",function(data){
 		arr = data;
 		listData();
 	});
@@ -20,20 +20,24 @@ $(function(){
 	function listData(){
 		// dno, dname, dloc
 		$.each(arr,function(idx,d){
-			var table = $('<table></table>');
 			var tr = $('<tr></tr>');
 			var dno = $('<td></td>').html(d.dno);
 			var dname = $('<td></td>').html(d.dname);
 			var dloc = $('<td></td>').html(d.dloc);
 			$(tr).append(dno,dname,dloc);	
-			$(table).append(tr);	
-			$('body').append(table);
+			$('#listDept').append(tr);
 		});
 	}
 });
 </script>
 </head>
 <body>
-	
+	<table id="listDept">
+		<tr>
+			<th>부서번호</th>
+			<th>부서이름</th>
+			<th>부서위치</th>
+		</tr>
+	</table>
 </body>
 </html>
