@@ -1,10 +1,13 @@
 package com.example.demo.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.dao.EmpDao;
+import com.example.demo.vo.DeptVo;
 import com.example.demo.vo.EmpVo;
 import com.google.gson.Gson;
 
@@ -30,9 +33,10 @@ public class EmpController {
 	// 사원목록
 	@RequestMapping(value = "/listEmp", produces = "application/json;charset=UTF-8")
 	public String listEmp() {
-		String str = "";
+		String str ="";
+		List<EmpVo> list = dao.listEmp();
 		Gson gson = new Gson();
-		str = gson.toJson(dao.listEmp());
+		str = gson.toJson(list);
 		return str;
 	}
 	

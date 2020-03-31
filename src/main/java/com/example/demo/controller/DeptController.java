@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,8 +33,9 @@ public class DeptController {
 	@RequestMapping(value = "/listDept" , produces ="application/json;charset=UTF-8")
 	public String listDept() {
 		String str ="";
+		List<DeptVo> list = dao.listDept();
 		Gson gson = new Gson();
-		str = gson.toJson(dao.listDept());
+		str = gson.toJson(list);
 		return str;
 	}
 }
