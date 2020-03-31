@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.dao.EmpDao;
+import com.example.demo.vo.EmpVo;
 import com.google.gson.Gson;
 
 @RestController
@@ -11,15 +13,17 @@ public class EmpController {
 
 	@Autowired
 	private EmpDao dao;
-	
-	//세터 만들기 
+
+	public void setDao(EmpDao dao) {
+		this.dao = dao;
+	}
 
 	// 사원등록
 	@RequestMapping(value = "/insertEmp", produces = "application/json;charset=UTF-8")
-	public String insertEmp() {
+	public String insertEmp(EmpVo e) {
 		String str = "";
 		Gson gson = new Gson();
-		str = gson.toJson(dao.insert());
+		str = gson.toJson(dao.insertEmp(e));
 		return str;
 	}
 
@@ -31,22 +35,31 @@ public class EmpController {
 		str = gson.toJson(dao.listEmp());
 		return str;
 	}
+	
+	//상세보기 
+	@RequestMapping(value = "/getEmp", produces = "application/json;charset=UTF-8")
+	public String getEmp(EmpVo e) {
+		String str = "";
+		Gson gson = new Gson();
+		str = gson.toJson(dao.getEmp(e));
+		return str;
+	}
 
 	// 사원삭제
 	@RequestMapping(value = "/deleteEmp", produces = "application/json;charset=UTF-8")
-	public String deleteEmp() {
+	public String deleteEmp(EmpVo e) {
 		String str = "";
 		Gson gson = new Gson();
-		str = gson.toJson(dao.delete());
+		str = gson.toJson(dao.deleteEmp(e));
 		return str;
 	}
 
 	// 사원수정
 	@RequestMapping(value = "/updateEmp", produces = "application/json;charset=UTF-8")
-	public String updateEmp() {
+	public String updateEmp(EmpVo e) {
 		String str = "";
 		Gson gson = new Gson();
-		str = gson.toJson(dao.update());
+		str = gson.toJson(dao.updateEmp(e));
 		return str;
 	}
 }
