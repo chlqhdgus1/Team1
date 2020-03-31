@@ -6,12 +6,12 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
 	$(function(){
-		$.ajax("insertEmp", function(){
-			
-		})
-		
 		$("#btnAdd").click(function(){
-			alert("등록되었습니다.");
+			var data = $("#form").serialize();	//serialize() - form에 있는 input의 value를 객체로 가져옴(='{}'형태로 가져옴)
+			$.ajax("insertEmp",{data:data,function(){
+				alert("등록되었습니다.");
+			}})
+			
 		})
 		
 	})
@@ -19,7 +19,7 @@
 </head>
 <body>
 	<div>
-		<form action="insertEmp" id="form" class="form">
+		<form id="form" class="form">
 		<h2>사원등록 페이지</h2>
 		<hr>
 		<div class="form-control">
