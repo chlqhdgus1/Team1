@@ -11,4 +11,5 @@
 	insert into dept values(#{dno},#{dname},#{dloc})
   </insert>
   <!-- adasdas -->
+  <!-- adasdas -->
 </mapper>
