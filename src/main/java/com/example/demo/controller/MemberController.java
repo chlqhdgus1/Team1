@@ -24,8 +24,6 @@ public class MemberController {
       MemberVo r = dao.login(m);
       if(r != null) {
          System.out.println("로그인 성공");
-      }else {
-         System.out.println("로그인 실패");
       }
       System.out.println("결과" + r.getName());
       
