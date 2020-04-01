@@ -117,10 +117,11 @@ $(function(){
     
 	$('#btnAdd').click(function(){
 		var data = $('#f').serialize();
-	});
-	$.ajax("insertDept",{data:data,success:function(r){
+		$.ajax("insertDept",{data:data,success:function(r){
 			alert(r);
 	}});
+	});
+	
 });
 </script>
 </head>

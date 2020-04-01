@@ -6,8 +6,8 @@ import org.springframework.stereotype.Repository;
 
 import com.example.demo.db.Manager;
 import com.example.demo.vo.EmpVo;
-@Repository
 
+@Repository
 public class EmpDao {
 	public static List<EmpVo> listEmp(){
 		return Manager.listEmp();
