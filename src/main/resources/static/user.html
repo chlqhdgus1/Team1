@@ -2,14 +2,163 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>Insert title here</title>
+<title>사용자 로그인 화면</title>
+<style type="text/css">
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500&display=swap');
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  line-height: 1.25;
+  font-weight:500;
+  letter-spacing:1px;
+  padding-top: 100px;
+}
+nav{
+    
+    background-color:#2196F3 ;
+    height:64px;
+    width: 100%;
+    position: fixed;
+    top:0;left:0;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+}
+input{
+border:none;
+background:#f8f8f8;
+text-align: center;
+    margin-left: -9%;
+}
+tr:hover {
+    background: #f3f9ff;
+}
+#l2{
+ 	visibility: hidden;	
+}
+#btnUpdate{
+cursor: pointer;
+    background-color: #3498db;
+    border: 2px solid #3498db;
+    border-radius: 4px;
+    color: #fff;
+    display: block;
+    font-size: 16px;
+    padding: 10px;
+    margin-top: 20px;
+    width: 15%;
+    
+        margin: -54px auto 80px;
+
+}
+
+/* 테이블 각 행 클릭시 하이라이트 */
+.highlight{
+	background:#f3F9FF;
+}
+
+.navbar-brand{color:#fff;text-decoration: none;position: absolute;left:0;font-size:2.1rem;margin-left:20px;line-height:64px;
+color: #fff;
+
+    letter-spacing: 1.2px;
+}
+tbody tr, tbody td{
+    color: #555;
+    font-weight: 300;
+}
+.inside_body{
+          position: absolute;
+          top: 21px;
+          right: 40px;
+}
+
+.logout_area>a{float: left;
+          display: inline-block;
+          margin-left: 25px;
+          color: #fff;
+          text-decoration: none;
+          letter-spacing: .5px;
+          cursor:pointer;
+}
+.logout_area>a svg{margin-right: 5px;}
+.box{overflow: hidden;
+    /* margin: 18px -8px -8px; */
+    margin: 0 auto;
+    width: 1500px;}
+ul{list-style:none;}
+li{list-style:none;float: left;
+    position: relative;
+    width: 278px;
+    height: 320px;
+    margin: 8px;
+    padding: 32px;
+    background-color:#f9fafb;
+    box-sizing: border-box;
+}
+.tit_recommproduct{
+display: inline-block;
+    position: relative;
+    width: 172px;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 32px;
+    color: hsla(0,0%,100%,.9);
+    letter-spacing: -.2px;
+    vertical-align: top;
+    color: #222
+}
+.desc_recommproduct{
+	padding-top: 20px;
+    font-size: 14px;
+    line-height: 24px;
+    color: hsla(0,0%,100%,.6);
+    letter-spacing: -.2px;
+}
+.box_recommbtn{
+ position: absolute;
+    bottom: 32px;
+    left: 32px;  
+}
+
+    
+</style>
 </head>
 <body>
-<h2>메뉴 선택</h2>
-<hr>
-	<a href="listDept.html">부서목록</a>
-	<a href="insertDept.html">부서등록</a>
-	<a href="listEmp.html">사원목록</a>
-	<a href="insertEmp2.html">사원등록</a>
+
+    <nav>
+        <a href="#" class="navbar-brand">Newbies</a>
+    </nav>
+    <div class="inside_body">
+              <div class="logout_area">
+                        <a class="btn_list"><span><i class="fas fa-user-friends"></i>LIST</span></a>
+                        <a class="btn_insert"><i class="fas fa-edit"></i><span>INSERT</span></a>
+              </div>
+    </div>	
+          <div class="box">
+                    <ul class="list_service">
+                    <li>
+                    	<strong class="tit_recommproduct">부서 목록<i class="fas fa-building"></i></strong>
+                    	<p class="desc_recommproduct">뉴비스 계정 하나로 간편하게 여러분의 부서를 관리 할 수 있도록 하는 서비스입니다. 누구나 가지고 있는 뉴비스 계정으로 빠르고 안전하게 부서를 관리해 보세요.</p>
+                    	<div class="box_recommbtn"><a href="listDept.html" class="link_productinfo">서비스소개</a></div>
+                    </li>
+                    <li>
+                    	<strong class="tit_recommproduct">부서 등록<i class="fas fa-folder-plus"></i></strong>
+                    	<p class="desc_recommproduct">뉴비스 계정 하나로 간편하게 여러분의 부서를 등록 할 수 있도록 하는 서비스입니다. 누구나 가지고 있는 뉴비스 계정으로 빠르고 안전하게 부서를 등록해 보세요.</p>
+                    	<div class="box_recommbtn"><a href="insertDept.html" class="link_productinfo">서비스소개</a></div>
+                    </li>
+                    <li>
+                    	<strong class="tit_recommproduct">사원 목록<i class="fas fa-user-circle"></i></strong>
+                    	<p class="desc_recommproduct">뉴비스 계정 하나로 간편하게 여러분의 사원을 관리 할 수 있도록 하는 서비스입니다. 누구나 가지고 있는 뉴비스 계정으로 빠르고 안전하게 사원을 관리해 보세요.</p>
+                    	<div class="box_recommbtn"><a href="listEmp.html" class="link_productinfo">서비스소개</a></div>
+                    </li>
+                    <li>
+                    	<strong class="tit_recommproduct">사원 등록<i class="fas fa-plus"></i></strong>
+                    	<p class="desc_recommproduct">뉴비스 계정 하나로 간편하게 여러분의 사원을 등록 할 수 있도록 하는 서비스입니다. 누구나 가지고 있는 뉴비스 계정으로 빠르고 안전하게 사원을 등록해 보세요.</p>
+                    	<div class="box_recommbtn"><a href="insertEmp2.html" class="link_productinfo">서비스소개</a></div>
+                    </li>                    
+                    
+                    </ul>
+          </div>
+	
+	
 </body>
 </html>
