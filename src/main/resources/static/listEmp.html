@@ -4,43 +4,225 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500&display=swap');
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  line-height: 1.25;
+  font-weight:500;
+  letter-spacing:1px;
+}
+nav{
+    
+    background-color:#2196F3 ;
+    height:64px;
+    width: 100%;
+    position: fixed;
+    top:0;left:0;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+}
+input{
+border:none;
+background:#f8f8f8;
+text-align: center;
+    margin-left: -9%;
+}
+tr:hover {
+    background: #f3f9ff;
+}
 #l2{
- 	visibility: hidden;
-/* 	visibility: visible; */
+ 	visibility: hidden;	
+}
+#btnUpdate{
+cursor: pointer;
+    background-color: #3498db;
+    border: 2px solid #3498db;
+    border-radius: 4px;
+    color: #fff;
+    display: block;
+    font-size: 16px;
+    padding: 10px;
+    margin-top: 20px;
+    width: 15%;
+    
+        margin: -54px auto 80px;
+
+}
+/* 테이블 각 행 클릭시 하이라이트 */
+.highlight{
+	background:#f3F9FF;
+}
+
+.navbar-brand{color:#fff;text-decoration: none;position: absolute;left:0;font-size:2.1rem;margin-left:20px;line-height:64px;
+color: #fff;
+
+    letter-spacing: 1.2px;
+}
+tbody tr, tbody td{
+    color: #555;
+    font-weight: 300;
+}
+.inside_body{
+          position: absolute;
+          top: 21px;
+          right: 40px;
+}
+
+.logout_area>a{float: left;
+          display: inline-block;
+          margin-left: 25px;
+          color: #fff;
+          text-decoration: none;
+          letter-spacing: .5px;
 }
 
 
+
+
+/**/
+table {
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  table-layout: fixed;
+  box-shadow: 0 0 40px 0 rgba(0,0,0,.15);
+    -moz-box-shadow: 0 0 40px 0 rgba(0,0,0,.15);
+  width: 1300px;
+    margin: 100px auto;  
+}
+
+table caption {
+font-size: 1.5em;
+    font-weight: 500;
+    margin: .5em 0 1.8em;
+    letter-spacing: 2px;
+	color:#222;
+}
+
+table tr {
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  padding: .35em;
+  cursor: pointer;
+}
+
+table th,
+table td {
+  padding: .625em;
+  text-align: center;
+}
+
+table th {
+  font-size: .85em;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+table thead tr{
+  background: #2196F3;
+  color:#fff;
+  
+  }
+@media screen and (max-width: 600px) {
+  table {
+    border: 0;
+  }
+
+  table caption {
+    font-size: 1.3em;
+    
+  }
+  
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  
+  table tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: .625em;
+  }
+
+  
+  table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: .8em;
+    text-align: right;
+  }
+  
+  table td::before {
+
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  table td:last-child {
+    border-bottom: 0;
+  }
+  
+  input{
+  border:none;
+  }
+
+}
 </style>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
 	$(function(){
+	    var lastScrollTop = 0, delta = 15;
+	    $(window).scroll(function(event){
+	       var st = $(this).scrollTop();
+	       
+	       if(Math.abs(lastScrollTop - st) <= delta)
+	          return; // 스크롤값을 받아서 리턴한다.
+		if ((st > lastScrollTop) && (lastScrollTop>0)) {
+	       // downscroll code
+	      $("nav").css("top","-64px"); // 스크롤을 내렸을때 #header의 CSS 속성중 top 값을 -64px로 변경한다.
+	  
+	   } else {
+	      // upscroll code
+	      $("nav").css("top","0px"); // 스크롤을 올렸을때 #header의 CSS 속성중 top 값을 0px로 변경한다.
+	   }
+	       lastScrollTop = st;
+	    });
+	    
 		var arr;
-
-		
 		$.ajax("listEmp", {success:function(data){
 			arr = data;
 			$.each(arr, function(idx, e){
 				var idx = idx;
-				var eno = $("<td></td>").html(e.eno);
+				var eno = $('<td class="data-label"></td>').html(e.eno);
 				$(eno).append(eno);
-				var ename = $("<td></td>").html(e.ename);
-				var job = $("<td></td>").html(e.job);
-				var sal = $("<td></td>").html(e.sal);
-				var comm = $("<td></td>").html(e.comm);
-				var mgr = $("<td></td>").html(e.mgr);
-				var hiredate = $("<td></td>").html(e.hiredate);
-				var dno = $("<td></td>").html(e.dno);
-				var email = $("<td></td>").html(e.email);
-				var jumin = $("<td></td>").html(e.jumin);
+				var ename = $('<td class="data-label"></td>').html(e.ename);
+				var job = $('<td class="data-label"></td>').html(e.job);
+				var sal = $('<td class="data-label"></td>').html(e.sal);
+				var comm = $('<td class="data-label"></td>').html(e.comm);
+				var mgr = $('<td class="data-label"></td>').html(e.mgr);
+				var hiredate = $('<td class="data-label"></td>').html(e.hiredate);
+				var dno = $('<td class="data-label"></td>').html(e.dno);
+				var email = $('<td class="data-label"></td>').html(e.email);
+				var jumin = $('<td class="data-label"></td>').html(e.jumin);
 				
-				var btn = $("<button id='btn'>삭제</button>");
-				
+				var btn = $("<a id='btn'>X</a>").css({ "color": "#e74c3c",'cursor':'pointer'});
+				var btn_td = $('<td class="data-label"></td>').append(btn);
 				var data = {eno:arr[idx].eno};
 				
 				eno.on("click",function(){
  					$("#l2").css("visibility","visible");
- 					$("#l1").css("visibility","hidden");
-					
+ 					/* $("#l1").css("visibility","hidden");
+					 */
 
 					
 					$.ajax("getEmp",{data:data,success:function(r){
@@ -58,15 +240,23 @@
 				})
 			
 				
-				
+				/* 삭제 버튼 클릭 이벤트 */
 				btn.on("click",function(){
 					$.ajax("deleteEmp",{data:data,success:function(r){
 						window.location.reload(true);
 					}})
 				})
+				/* ************* */
+				$('.btn_list').click(function(){
+					$(this).attr('href','listEmp2.html');
+				});
 				
+				/* 상단 등록 버튼 클릭 이벤트 */
+				$('.btn_insert').click(function(){
+					window.location.href = 'insertEmp.html';
+				});
 				var tr = $("<tr></tr>");
-				$(tr).append(eno, ename, job, sal, comm, mgr, hiredate, dno, email, jumin,btn);
+				$(tr).append(eno, ename, job, sal, comm, mgr, hiredate, dno, email, jumin,btn_td);
 				$("#listEmp").append(tr);
 				
 				
@@ -74,7 +264,7 @@
 			})
 		}})
 		
-		
+		/* 수정 버튼 클릭 이벤트 */
 		$("#btnUpdate").click(function(){
 			var data = $("#f").serialize();
 			$.ajax("updateEmp",{data:data,function(r){
@@ -82,60 +272,63 @@
 			}});
 		})
 		
-		 $("#btnEmail").click(function(){
-			  $.ajax("mail.do",{data:data, success:function(r){
-			         alert("전송되었습니다.");
-		 	}});
-		});
-		
-		
+
 	})
 </script>
 </head>
 <body>
-<a href="listDept.html">부서 목록</a>
-<a href="insertEmp2.html">사원 등록</a>
-<a href="listEmp.html">사원 목록</a>
-<button id="btnEmail">급여명세서 전송하기</button>
-<div id="l1">
-<h2>사원 목록</h2>
-<hr>
-	<table border=1 id="listEmp" width="80%">
-		<tr>
-			<th align="center">사원번호</th>
-			<th align="center">사원명</th>
-			<th align="center">직무</th>
-			<th align="center">급여</th>
-			<th align="center">상여금</th>
-			<th align="center">관리자번호</th>
-			<th align="center">입사일</th>
-			<th align="center">부서번호</th>
-			<th align="center">이메일</th>
-			<th align="center">주민번호</th>
-		</tr>
-	</table>
-	
-</div>	
 
+    <nav>
+        <a href="#" class="navbar-brand">Newbies</a>
+    </nav>
+    <div class="inside_body">
+              <div class="logout_area">
+                        <a class="btn_list"><span>LIST</span></a>
+                        <a class="btn_insert"><span>INSERT</span></a>
+              </div>
+    </div>
+	<table id="listEmp">
+	  <caption>사원 목록</caption>
+	  <thead>
+	    <tr>
+	      <th scope="col">NO</th>
+	      <th scope="col">NAME</th>
+	      <th scope="col">POSITION</th>
+	      <th scope="col">SALARY</th>
+	      <th scope="col">COMMISSION</th>
+	      <th scope="col">MANAGERID</th>
+	      
+	      <th scope="col">HIREDATE</th>
+	      <th scope="col">DEPT NO</th>
+	      <th scope="col">EMAIL</th>
+	      <th scope="col">ID NO</th>	
+	      <th scope="col"></th>      
+	    </tr>
+	  </thead>
+	  <tbody>
+<!-- 	  동적 생성  -->
+	  </tbody>
+	</table>
 
 <div id="l2">
-<h2>사원 상세 정보</h2>
-<hr>
-<form id="f">
-	<table border=1 id="listEmp2" width="80%"">
+
+<form id="f" class="form">
+	<table id="listEmp2">
+		<caption>사원 정보 수정</caption>
+		<thead>
 		<tr>
-			<th align="center">사원번호</th>
-			<th align="center">사원명</th>
-			<th align="center">직무</th>
-			<th align="center">급여</th>
-			<th align="center">상여금</th>
-			<th align="center">관리자번호</th>
-			<th align="center">입사일</th>
-			<th align="center">부서번호</th>
-			<th align="center">이메일</th>
-			<th align="center">주민번호</th>
+			<th scope="col" align="center">사원번호</th>
+			<th scope="col" align="center">사원명</th>
+			<th scope="col" align="center">직무</th>
+			<th scope="col" align="center">급여</th>
+			<th scope="col" align="center">상여금</th>
+			<th scope="col" align="center">관리자번호</th>
+			<th scope="col" align="center">입사일</th>
+			<th scope="col" align="center">부서번호</th>
+			<th scope="col" align="center">이메일</th>
+			<th scope="col" align="center">주민번호</th>
 		</tr>
-			
+		</thead>	
 		<tr>
 			<td>
 				<input type="text" id="eno" name="eno" readonly="readonly">
@@ -170,8 +363,13 @@
 
 		</tr>
 	</table>
+	
+	
+	
+	
+	
 </form>
-<button id="btnUpdate">수정하기</button>
+<button id="btnUpdate">수정</button>
 </div>
 	
 	
