@@ -1,40 +1,186 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+<meta charset="EUC-KR">
+<title>Newbies</title>
+
+<style type="text/css">
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400&display=swap');
+
+
+*{
+          box-sizing: border-box;
+}
+body{
+          background-color: #f9fafb;
+          font-family: 'Noto Sans KR', sans-serif;
+          letter-spacing:.5px;
+          display:flex;
+          align-items: center;
+          justify-content: center;
+          /* view port height unit (vh) -> to get it centered vertically as well */
+          min-height: 100vh;
+          margin:0;
+              padding-top: 30px;
+}
+nav{
+    
+    background-color:#2196F3 ;
+    height:64px;
+    width: 100%;
+    position: fixed;
+    top:0;left:0;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+}
+
+.navbar-brand{color:#fff;text-decoration: none;position: absolute;left:0;font-size: 2.1rem;margin-left:20px;line-height:64px;}
+.container{
+          background-color: #fff;
+          border-radius: 5px;
+          box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+          width:400px;
+}
+.inside_body{
+          position: absolute;
+          top: 21px;
+          right: 40px;
+}
+
+.logout_area>a{float: left;
+          display: inline-block;
+          margin-left: 25px;
+          color: #fff;
+          text-decoration: none;
+          letter-spacing: .5px;
+          cursor:pointer;
+}
+.logout_area>a svg{margin-right: 5px;}
+h2{
+          text-align: center;
+          margin:0 0 20px;
+}
+.form{
+          padding:30px 40px;
+}
+
+.form-control{
+/*           margin-bottom: 10px; */
+          padding-bottom: 20px;
+          position: relative;
+}
+
+.form-control label{
+          color:#777;
+          display: block;
+          margin-bottom: 5px;
+}
+.form-control input{
+          border:2px solid #f0f0f0;
+          border-radius:4px;
+          display: block;
+          width:100%;
+          padding:10px;
+          font-size: 14px;
+}
+
+.form button{
+          cursor: pointer;
+          background-color: #3498db;
+          border:2px solid #3498db;
+          border-radius: 4px;
+          color:#fff;
+          display: block;
+          font-size:16px;
+          padding:10px;
+          margin-top:20px;
+          width:100%;
+}
+</style>
+
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
 <script type="text/javascript">
 $(function(){
-   
+	  var lastScrollTop = 0, delta = 15;
+	    $(window).scroll(function(event){
+	       var st = $(this).scrollTop();
+	       
+	       if(Math.abs(lastScrollTop - st) <= delta)
+	          return; // Ω∫≈©∑—∞™¿ª πﬁæ∆º≠ ∏Æ≈œ«—¥Ÿ.
+		if ((st > lastScrollTop) && (lastScrollTop>0)) {
+	       // downscroll code
+	      $("nav").css("top","-64px"); // Ω∫≈©∑—¿ª ≥ª∑»¿ª∂ß #header¿« CSS º”º∫¡ﬂ top ∞™¿ª -64px∑Œ ∫Ø∞Ê«—¥Ÿ.
+	  
+	   } else {
+	      // upscroll code
+	      $("nav").css("top","0px"); // Ω∫≈©∑—¿ª ø√∑»¿ª∂ß #header¿« CSS º”º∫¡ﬂ top ∞™¿ª 0px∑Œ ∫Ø∞Ê«—¥Ÿ.
+	   }
+	       lastScrollTop = st;
+	    });
+	    
+	    
+	    
    $("#btnLogin").click(function(){
       var member = $("#login-form").serialize();
       $.ajax("login", {data:member, success:function(r){
-    	  if(r.name == "Îß§ÎãàÏ†Ä"){
-         	 alert("Îß§ÎãàÏ†Ä Î°úÍ∑∏Ïù∏");
-         	window.location.href = "manager.html";
+    	  if(r.name == "∏≈¥œ¿˙"){
+         	 alert("∞¸∏Æ¿⁄∑Œ ∑Œ±◊¿Œ«œø¥Ω¿¥œ¥Ÿ!");
+         	window.location.href = "listLog.html";
           }
     	  else if(r.name != "no"){
             sessionStorage.setItem("memberID", r);
-            alert("ÏùºÎ∞òÏú†Ï†Ä Î°úÍ∑∏Ïù∏");
-            window.location.href = "user.html";
+            alert("¿œπ›¿Ø¿˙∑Œ ∑Œ±◊¿Œµ«ºÃΩ¿¥œ¥Ÿ!");
+            window.location.href = "listDept.html";
          }     
       }});
    });
 
+   
+	/* ************* */
+	$('.btn_list').click(function(){
+		
+		window.location.href="listEmp.html";
+	});
+	
+	/* ªÛ¥‹ µÓ∑œ πˆ∆∞ ≈¨∏Ø ¿Ã∫•∆Æ */
+	$('.btn_insert').click(function(){
+		window.location.href = 'insertEmp2.html';
+		
+	});   
 });
 </script>
 </head>
-<body>   
-<div class="login-page">
-  <div class="form">
-     <h2>Î°úÍ∑∏Ïù∏ ÌéòÏù¥ÏßÄ</h2><br>
-    <form id="login-form">
-      <input type="text" name="id"/>
-      <input type="password" name="pwd"/>
-    </form>
-      <button id="btnLogin">login</button>  
-  </div> 
-</div>
+<body>  
+	<!-- «Ï¥ı -->
+    <nav>
+        <a href="#" class="navbar-brand">Newbies</a>
+    </nav>
+    <div class="inside_body">
+       <div class="logout_area">
+          <a class="btn_list"><span><i class="fas fa-user-friends"></i>LIST</span></a>
+          <a class="btn_insert"><span><i class="fas fa-edit"></i>INSERT</span></a>
+       </div>
+    </div> 
+
+     <div class="container">
+        <form id="login-form" class="form">
+           <h2>∑Œ±◊¿Œ ∆‰¿Ã¡ˆ</h2>
+           	  <div class="form-control">
+              <label for="id">æ∆¿Ãµ</label>
+              <input type="text" id="id" name="id">
+              </div>
+              
+              <div class="form-control">
+              <label for="pwd">∫Òπ–π¯»£</label>
+              <input type="password" id="pwd" name="pwd">
+              </div>
+
+           <button id="btnLogin">∑Œ±◊¿Œ</button>
+        </form>
+     </div>	
+	
+
+
 </body>
 </html>
