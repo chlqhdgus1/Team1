@@ -2,6 +2,8 @@ package com.example.demo.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,7 +24,7 @@ public class DeptController {
 
 	//부서등록
 	@RequestMapping(value = "/insertDept" , produces ="application/json;charset=UTF-8")
-	public String insertDept(DeptVo d) {
+	public String insertDept(DeptVo d, HttpServletRequest request) {
 		String str ="";
 		Gson gson = new Gson();
 		str = gson.toJson(dao.insertDept(d));
@@ -31,7 +33,7 @@ public class DeptController {
 	
 	//부서목록
 	@RequestMapping(value = "/listDept" , produces ="application/json;charset=UTF-8")
-	public String listDept() {
+	public String listDept(HttpServletRequest request) {
 		String str ="";
 		List<DeptVo> list = dao.listDept();
 		Gson gson = new Gson();

@@ -2,10 +2,11 @@ package com.example.demo.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.example.demo.dao.EmpDao;
 import com.example.demo.vo.EmpVo;
@@ -23,7 +24,7 @@ public class EmpController {
 
 	// 사원등록
 	@RequestMapping(value = "/insertEmp", produces = "application/json;charset=UTF-8")
-	public String insertEmp(EmpVo e) {
+	public String insertEmp(EmpVo e,HttpServletRequest request) {
 		String str = "";
 		Gson gson = new Gson();
 		str = gson.toJson(dao.insertEmp(e));
@@ -32,7 +33,7 @@ public class EmpController {
 
 	// 사원목록
 	@RequestMapping(value = "/listEmp", produces = "application/json;charset=UTF-8")
-	public String listEmp() {
+	public String listEmp(HttpServletRequest request) {
 		String str ="";
 		List<EmpVo> list = dao.listEmp();
 		Gson gson = new Gson();
@@ -42,7 +43,7 @@ public class EmpController {
 	
 	//상세보기 
 	@RequestMapping(value = "/getEmp", produces = "application/json;charset=UTF-8")
-	public String getEmp(EmpVo e) {
+	public String getEmp(EmpVo e, HttpServletRequest request) {
 		String str = "";
 		Gson gson = new Gson();
 		str = gson.toJson(dao.getEmp(e));
@@ -51,7 +52,7 @@ public class EmpController {
 
 	// 사원삭제
 	@RequestMapping(value = "/deleteEmp", produces = "application/json;charset=UTF-8")
-	public String deleteEmp(EmpVo e) {
+	public String deleteEmp(EmpVo e, HttpServletRequest request) {
 		String str = "";
 		Gson gson = new Gson();
 		str = gson.toJson(dao.deleteEmp(e));
@@ -60,7 +61,7 @@ public class EmpController {
 
 	// 사원수정
 	@RequestMapping(value = "/updateEmp", produces = "application/json;charset=UTF-8")
-	public String updateEmp(EmpVo e) {
+	public String updateEmp(EmpVo e, HttpServletRequest request) {
 		String str = "";
 		Gson gson = new Gson();
 		str = gson.toJson(dao.updateEmp(e));

@@ -10,6 +10,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import com.example.demo.vo.DeptVo;
 import com.example.demo.vo.EmpVo;
+import com.example.demo.vo.LogVo;
 
 
 public class Manager {
@@ -24,6 +25,22 @@ public class Manager {
 			System.out.println(e.getMessage());
 		}
 	}
+	
+	public static int insertLog(LogVo lo) {
+		int re =  -1;
+		SqlSession session = factory.openSession();
+		re= session.insert("log.insertLog",lo);
+		session.commit();
+		session.close();
+		return re;
+	}
+	
+	public static List<LogVo> listLog(){
+		SqlSession session = factory.openSession();
+		List<LogVo> list = session.selectList("log.selectLog");
+		session.close();
+		return list;
+	} 
 	
 	public static List<EmpVo> listEmp(){
 		SqlSession session = factory.openSession();
