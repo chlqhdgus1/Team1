@@ -11,6 +11,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import com.example.demo.vo.DeptVo;
 import com.example.demo.vo.EmpVo;
 import com.example.demo.vo.LogVo;
+import com.example.demo.vo.MemberVo;
 
 
 public class Manager {
@@ -98,6 +99,12 @@ public class Manager {
 		return re;
 	}
 	
-	
+	public static MemberVo login(MemberVo m) {
+		SqlSession session = factory.openSession();
+		MemberVo vo = session.selectOne("member.login", m);
+		session.close();
+		System.out.println("매니저동작");
+		return vo;
+	}
 	
 }

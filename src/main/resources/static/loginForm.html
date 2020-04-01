@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+$(function(){
+   
+   $("#btnLogin").click(function(){
+      var member = $("#login-form").serialize();
+      $.ajax("login", {data:member, success:function(r){
+    	  if(r.name == "매니저"){
+         	 alert("매니저 로그인");
+         	window.location.href = "listLog.html";
+          }
+    	  else if(r.name != "no"){
+            sessionStorage.setItem("memberID", r);
+            alert("일반유저 로그인");
+            window.location.href = "listDept.html";
+         }     
+      }});
+   });
+
+});
+</script>
+</head>
+<body>   
+<div class="login-page">
+  <div class="form">
+     <h2>로그인 페이지</h2><br>
+    <form id="login-form">
+      <input type="text" name="id"/>
+      <input type="password" name="pwd"/>
+    </form>
+      <button id="btnLogin">login</button>  
+  </div> 
+</div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	var data=eno;
+	$.getJSON("getEmp",{data:data,success:function(data){
+		arr=data;
+		$.each(arr,function(idx,g){
+			var no = $("<td></td>").html(g.eno);
+			var ename = $("<td></td>").html(g.ename);
+			var job = $("<td></td>").html(g.job);
+			var sal = $("<td></td>").html(g.sal);
+			var comm = $("<td></td>").html(g.comm);
+			var mgr = $("<td></td>").html(g.mgr);
+			var hiredate = $("<td></td>").html(g.hiredate);
+			var dno = $("<td></td>").html(g.dno);
+			var email = $("<td></td>").html(g.email);
+			var jumin = $("<td></td>").html(g.jumin);
+			
+			var tr=$("<tr></tr>").append(no,ename,job,sal,comm,mgr,hiredate,dno,email,jumin)
+			
+		})
+	}})
+	
+})
+</script>
+<body>
+<h2>상세보기</h2>
+<hr>
+<table>
+	<tr>
+		<td>번호</td>
+		<td>이름</td>
+		<td>직급</td>
+		<td>급여</td>
+		<td>상여금</td>
+		<td>관리자</td>
+		<td>입사일</td>
+		<td>부서번호</td>
+		<td>이메일</td>
+		<td>주민번호</td>
+	</tr>
+	
+</table>
+</body>
+</html>
