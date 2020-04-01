@@ -10,6 +10,7 @@
           box-sizing: border-box;
 }
 body{
+
           background-color: #f9fafb;
           font-family: 'Noto Sans KR', sans-serif;
           letter-spacing:.5px;
@@ -127,8 +128,8 @@ $(function(){
 	 	var data = $("#f").serialize()
 		$.ajax("insertEmp",{data:data,success:function(r){
 			alert(r);
-			window.location.href="http://localhost:8088/listEmp.html";
 		}})
+		window.location.href="listEmp.html";
 	})
 })
 </script>
@@ -189,7 +190,7 @@ $(function(){
               <label for="jumin">주민번호</label>
               <input type="text" id="jumin" name="jumin" placeholder="주민번호를 입력하세요.">
               </div>                                                                   
-           <button id="btnAdd">등록</button>
+           <button type="button" id="btnAdd">등록</button>
         </form>
      </div>
 
