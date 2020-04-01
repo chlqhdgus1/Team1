@@ -82,6 +82,12 @@
 			}});
 		})
 		
+		 $("#btnEmail").click(function(){
+			  $.ajax("mail.do",{data:data, success:function(r){
+			         alert("전송되었습니다.");
+		 	}});
+		});
+		
 		
 	})
 </script>
@@ -90,6 +96,7 @@
 <a href="listDept.html">부서 목록</a>
 <a href="insertEmp2.html">사원 등록</a>
 <a href="listEmp.html">사원 목록</a>
+<button id="btnEmail">급여명세서 전송하기</button>
 <div id="l1">
 <h2>사원 목록</h2>
 <hr>
@@ -107,6 +114,7 @@
 			<th align="center">주민번호</th>
 		</tr>
 	</table>
+	
 </div>	
 
 

@@ -13,6 +13,7 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.mail.javamail.MimeMessagePreparator;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.demo.db.Manager;
 import com.example.demo.vo.EmpVo;
@@ -29,7 +30,7 @@ public class EmailController {
 		this.mailSender = mailSender;
 	}
 
-	@Scheduled(cron = "40 18 * * * *")
+	@Scheduled(cron = "0 0 12 1 * *")
 	public void pro() {
 		
 		List<EmpVo> list = Manager.listEmp();
@@ -38,6 +39,8 @@ public class EmailController {
 			sendMail(e);
 		}
 	}
+	
+	@RequestMapping("/mail.do")
 	public void sendMail(EmpVo e) {	
 		mailSender.send(new MimeMessagePreparator() {
 			  
