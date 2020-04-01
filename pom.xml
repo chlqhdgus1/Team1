@@ -72,7 +72,7 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context-support</artifactId>
-			<version>5.2.5.RELEASE</version>
+			<version>4.3.0.RELEASE</version>
 		</dependency>
 
 		<!-- Java Mail API -->
