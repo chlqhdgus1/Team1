@@ -27,7 +27,7 @@ public class DeptController {
 		Gson gson = new Gson();
 		str = gson.toJson(dao.insertDept(d));
 		return str;
-	}
+	} 
 	
 	//부서목록
 	@RequestMapping(value = "/listDept" , produces ="application/json;charset=UTF-8")
