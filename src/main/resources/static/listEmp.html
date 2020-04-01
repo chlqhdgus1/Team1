@@ -266,6 +266,8 @@ table thead tr{
 			$.ajax("updateEmp",{data:data,function(r){
 				alert(r);
 			}});
+			//수정하면 바로 리스트가 갱신되도록 새로고침기능 넣음 
+			window.location.reload(true);
 		})
 		
 
