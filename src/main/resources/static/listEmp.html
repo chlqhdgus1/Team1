@@ -14,7 +14,6 @@ body {
   letter-spacing:1px;
 }
 nav{
-    
     background-color:#2196F3 ;
     height:64px;
     width: 100%;
@@ -248,12 +247,12 @@ table thead tr{
 				})
 				/* ************* */
 				$('.btn_list').click(function(){
-					$(this).attr('href','listEmp2.html');
+					$(this).attr('href','listDept.html');
 				});
 				
 				/* 상단 등록 버튼 클릭 이벤트 */
 				$('.btn_insert').click(function(){
-					window.location.href = 'insertEmp.html';
+					window.location.href = 'insertEmp2.html';
 				});
 				var tr = $("<tr></tr>");
 				$(tr).append(eno, ename, job, sal, comm, mgr, hiredate, dno, email, jumin,btn_td);
@@ -272,9 +271,6 @@ table thead tr{
 			}});
 		})
 		
-		$("#navbar-brand").click(function(){
-			window.location.href = 'listEmp.html';
-		})
 
 	})
 </script>
@@ -286,7 +282,7 @@ table thead tr{
     </nav>
     <div class="inside_body">
               <div class="logout_area">
-                        <a class="btn_list"><span>LIST</span></a>
+                        <a class="btn_list"><span>D_LIST</span></a>
                         <a class="btn_insert"><span>INSERT</span></a>
               </div>
     </div>
