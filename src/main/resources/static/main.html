@@ -12,12 +12,12 @@ $(function(){
       $.ajax("login", {data:member, success:function(r){
     	  if(r.name == "매니저"){
          	 alert("매니저 로그인");
-         	window.location.href = "listLog.html";
+         	window.location.href = "manager.html";
           }
     	  else if(r.name != "no"){
             sessionStorage.setItem("memberID", r);
             alert("일반유저 로그인");
-            window.location.href = "listDept.html";
+            window.location.href = "user.html";
          }     
       }});
    });
