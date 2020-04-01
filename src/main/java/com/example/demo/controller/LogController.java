@@ -30,11 +30,11 @@ public class LogController {
 		return str;
 	}
 	
-	@RequestMapping(value = "/insertLog" , produces ="application/json;charset=UTF-8")
-	public String insertDept(LogVo lo) {
-		String str ="";
-		Gson gson = new Gson();
-		str = gson.toJson(dao.insertLog(lo));
-		return str;
-	}
+//	@RequestMapping(value = "/insertLog" , produces ="application/json;charset=UTF-8")
+//	public String insertLog(LogVo lo) {
+//		String str ="";
+//		Gson gson = new Gson();
+//		str = gson.toJson(dao.insertLog(lo));
+//		return str;
+//	}
 }

@@ -15,7 +15,7 @@ import com.google.gson.Gson;
 @RestController
 public class EmpController {
 
-	@Autowired
+	@Autowired 
 	private EmpDao dao;
 
 	public void setDao(EmpDao dao) {
@@ -23,11 +23,10 @@ public class EmpController {
 	}
 
 	// 사원등록
-	@RequestMapping(value = "/insertEmp", produces = "application/json;charset=UTF-8")
-	public String insertEmp(EmpVo e,HttpServletRequest request) {
-		String str = "";
-		Gson gson = new Gson();
-		str = gson.toJson(dao.insertEmp(e));
+	@RequestMapping(value = "/insertEmp")
+	public String insertEmp(HttpServletRequest request,EmpVo e) {
+		String str = "ok";
+		dao.insertEmp(e);
 		return str;
 	}
 
@@ -43,7 +42,7 @@ public class EmpController {
 	
 	//상세보기 
 	@RequestMapping(value = "/getEmp", produces = "application/json;charset=UTF-8")
-	public String getEmp(EmpVo e, HttpServletRequest request) {
+	public String getEmp( HttpServletRequest request,EmpVo e) {
 		String str = "";
 		Gson gson = new Gson();
 		str = gson.toJson(dao.getEmp(e));
@@ -52,7 +51,7 @@ public class EmpController {
 
 	// 사원삭제
 	@RequestMapping(value = "/deleteEmp", produces = "application/json;charset=UTF-8")
-	public String deleteEmp(EmpVo e, HttpServletRequest request) {
+	public String deleteEmp( HttpServletRequest request,EmpVo e) {
 		String str = "";
 		Gson gson = new Gson();
 		str = gson.toJson(dao.deleteEmp(e));
@@ -61,7 +60,7 @@ public class EmpController {
 
 	// 사원수정
 	@RequestMapping(value = "/updateEmp", produces = "application/json;charset=UTF-8")
-	public String updateEmp(EmpVo e, HttpServletRequest request) {
+	public String updateEmp(HttpServletRequest request,EmpVo e) {
 		String str = "";
 		Gson gson = new Gson();
 		str = gson.toJson(dao.updateEmp(e));

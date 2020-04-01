@@ -28,7 +28,7 @@ public class LogAop {
 		this.dao = dao;
 	}
 
-
+	
 	@After("loggg()")
 	public void before(JoinPoint j) {
 		
@@ -38,10 +38,9 @@ public class LogAop {
 		String url = request.getRequestURI();
 		String ip = request.getRemoteAddr();
 		String time = new Date().toLocaleString();
-//		String log = url + "\t" + ip + "\t" + time + "\n";
 
 		LogVo lo = new LogVo();
-		
+	
 		lo.setUrl(url);
 		lo.setIp(ip);
 		lo.setTime(time);

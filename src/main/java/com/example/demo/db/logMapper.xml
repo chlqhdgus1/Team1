@@ -5,7 +5,7 @@
 <mapper namespace="log">
 	
 	<select id="selectLog" resultType="logVo">
-		select * from log
+		select * from log order by time desc
 	</select>
 	
 	<insert id="insertLog">

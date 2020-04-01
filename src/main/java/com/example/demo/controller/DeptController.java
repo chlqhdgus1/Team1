@@ -23,12 +23,11 @@ public class DeptController {
 	}
 
 	//부서등록
-	@RequestMapping(value = "/insertDept" , produces ="application/json;charset=UTF-8")
-	public String insertDept(DeptVo d, HttpServletRequest request) {
-		String str ="";
-		Gson gson = new Gson();
-		str = gson.toJson(dao.insertDept(d));
-		return str;
+	@RequestMapping(value = "/insertDept")
+	public String insertDept(HttpServletRequest request,DeptVo d) {
+		String str ="ok";
+		dao.insertDept(d);
+		return str; 
 	} 
 	
 	//부서목록
