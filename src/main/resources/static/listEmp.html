@@ -174,8 +174,8 @@ $(function(){
 		// dno, dname, dloc
 		$.each(arr,function(idx,e){			
 			var tr = $('<tr></tr>');	
-		 	var eno = $('<td class="data-label"></td>').html('<a href="getEmp?eno='+arr[idx].eno+'">'+arr[idx].eno+'</a>'); 
-		 	var ename = $('<td class="data-label"></td>').html('<a href="getEmp?eno='+arr[idx].eno+'">'+arr[idx].ename+'</a>'); 
+		 	var eno = $('<td class="data-label"></td>').html(e.eno); 
+		 	var ename = $('<td class="data-label"></td>').html(e.ename); 
 			var job = $('<td class="data-label"></td>').html(e.job);
 			var sal = $('<td class="data-label"></td>').html(e.sal);
 			var comm = $('<td class="data-label"></td>').html(e.comm);
