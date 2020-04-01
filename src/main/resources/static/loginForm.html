@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
@@ -10,13 +10,13 @@ $(function(){
    $("#btnLogin").click(function(){
       var member = $("#login-form").serialize();
       $.ajax("login", {data:member, success:function(r){
-    	  if(r.name == "¸Å´ÏÀú"){
-         	 alert("¸Å´ÏÀú ·Î±×ÀÎ");
+    	  if(r.name == "ë§¤ë‹ˆì €"){
+         	 alert("ë§¤ë‹ˆì € ë¡œê·¸ì¸");
          	window.location.href = "listLog.html";
           }
     	  else if(r.name != "no"){
             sessionStorage.setItem("memberID", r);
-            alert("ÀÏ¹İÀ¯Àú ·Î±×ÀÎ");
+            alert("ì¼ë°˜ìœ ì € ë¡œê·¸ì¸");
             window.location.href = "listDept.html";
          }     
       }});
@@ -28,7 +28,7 @@ $(function(){
 <body>   
 <div class="login-page">
   <div class="form">
-     <h2>·Î±×ÀÎ ÆäÀÌÁö</h2><br>
+     <h2>ë¡œê·¸ì¸ í˜ì´ì§€</h2><br>
     <form id="login-form">
       <input type="text" name="id"/>
       <input type="password" name="pwd"/>

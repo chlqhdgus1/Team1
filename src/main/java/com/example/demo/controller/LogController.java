@@ -22,7 +22,7 @@ public class LogController {
 	}
 	
 	@RequestMapping(value = "/listLog" , produces ="application/json;charset=UTF-8")
-	public String listLog() {
+	public String listLog(HttpServletRequest request) {
 		String str ="";
 		List<LogVo> list = dao.listLog();
 		Gson gson = new Gson();
