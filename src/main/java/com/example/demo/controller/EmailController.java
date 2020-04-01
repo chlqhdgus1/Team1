@@ -31,7 +31,7 @@ private JavaMailSender mailSender;
 	public void pro() {
 		
 		List<EmpVo> list = Manager.listEmp();
-				
+				  
 		for(EmpVo e : list) {
 			sendMail(e);
 		}
