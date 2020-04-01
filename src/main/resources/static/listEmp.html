@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>사원 목록</title>
 <style type="text/css">
 
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500&display=swap');
@@ -49,10 +49,7 @@ cursor: pointer;
         margin: -54px auto 80px;
 
 }
-/* 테이블 각 행 클릭시 하이라이트 */
-.highlight{
-	background:#f3F9FF;
-}
+
 
 .navbar-brand{color:#fff;text-decoration: none;position: absolute;left:0;font-size:2.1rem;margin-left:20px;line-height:64px;
 color: #fff;
@@ -75,6 +72,7 @@ tbody tr, tbody td{
           color: #fff;
           text-decoration: none;
           letter-spacing: .5px;
+          cursor:pointer;
 }
 
 
@@ -171,14 +169,12 @@ table thead tr{
   table td:last-child {
     border-bottom: 0;
   }
-  
-  input{
-  border:none;
-  }
+
 
 }
 </style>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
 <script type="text/javascript">
 	$(function(){
 	    var lastScrollTop = 0, delta = 15;
@@ -283,8 +279,8 @@ table thead tr{
     </nav>
     <div class="inside_body">
               <div class="logout_area">
-                        <a class="btn_list"><span>LIST</span></a>
-                        <a class="btn_insert"><span>INSERT</span></a>
+                        <a class="btn_list"><span><i class="fas fa-user-friends"></i>LIST</span></a>
+                        <a class="btn_insert"><span><i class="fas fa-edit"></i>INSERT</span></a>
               </div>
     </div>
 	<table id="listEmp">
