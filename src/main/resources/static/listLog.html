@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>관리자 페이지</title>
+<style type="text/css">
+/*#4272d7*/
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600&display=swap');
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  line-height: 1.25;
+  font-weight:500;
+  letter-spacing:1px;
+}
+nav{
+    
+    background-color:#2196F3 ;
+    height:64px;
+    width: 100%;
+    position: fixed;
+    top:0;left:0;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+}
+
+.navbar-brand{color:#fff;text-decoration: none;position: absolute;left:0;font-size:2.1rem;margin-left:20px;line-height:64px;
+color: #fff;
+
+    letter-spacing: 1.2px;
+}
+tbody tr, tbody td{
+    color: #555;
+    font-weight: 300;
+}
+.inside_body{
+          position: absolute;
+          top: 21px;
+          right: 40px;
+}
+
+.logout_area>a{float: left;
+          display: inline-block;
+          margin-left: 25px;
+          color: #fff;
+          text-decoration: none;
+          letter-spacing: .5px;
+}
+
+
+
+
+/**/
+table {
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  table-layout: fixed;
+  box-shadow: 0 0 40px 0 rgba(0,0,0,.15);
+    -moz-box-shadow: 0 0 40px 0 rgba(0,0,0,.15);
+  width: 800px;
+    margin: 100px auto;  
+}
+
+table caption {
+font-size: 1.5em;
+    font-weight: 500;
+    margin: .5em 0 .75em;
+    letter-spacing: 2px;
+	color:#222;
+}
+
+
+
+table tr {
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  padding: .35em;
+}
+
+table th,
+table td {
+  padding: .625em;
+  text-align: center;
+}
+
+table th {
+  font-size: .85em;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+table thead tr{
+  background: #2196F3;
+  color:#fff;
+  
+  }
+@media screen and (max-width: 600px) {
+  table {
+    border: 0;
+  }
+
+  table caption {
+    font-size: 1.3em;
+    
+  }
+  
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  
+  table tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: .625em;
+  }
+  
+  table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: .8em;
+    text-align: right;
+  }
+  
+  table td::before {
+    /*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    */
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  table td:last-child {
+    border-bottom: 0;
+  }
+
+}
+</style>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	
+	
+	
+	var arr;
+	$.getJSON("listLog",function(data){
+		arr = data;
+		listData();
+	});	
+	function listData(){
+		
+		$.each(arr,function(idx,l){
+			
+			var tr = $('<tr></tr>');
+			var url = $('<td class="data-label"></td>').html(l.url);
+			var ip = $('<td class="data-label"></td>').html(l.ip);
+			var time = $('<td class="data-label"></td>').html(l.time);
+			$(tr).append(url,ip,time);	
+			$('table > tbody').append(tr);
+		});
+		
+	}
+});
+//url varchar2(100), ip varchar2(50), time varchar2(100)
+</script>
+</head>
+<body>
+    <nav>
+        <a href="#" class="navbar-brand">Newbies</a>
+    </nav>
+    <div class="inside_body">
+              <div class="logout_area">
+                        <a class="btn_list"><span>LIST</span></a>
+                        <a class="btn_insert"><span>INSERT</span></a>
+              </div>
+    </div>
+	<table>
+	  <caption>로그 기록</caption>
+	  <thead>
+	    <tr>
+	      <th scope="col">URL</th>
+	      <th scope="col">IP</th>
+	      <th scope="col">TIME</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+<!-- 	   동적생성 영역 -->
+	  </tbody>
+	</table>
+
+	
+</body>
+</html>
