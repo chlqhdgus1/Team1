@@ -38,7 +38,6 @@ public class LogAop {
 		String url = request.getRequestURI();
 		String ip = request.getRemoteAddr();
 		String time = new Date().toLocaleString();
-
 		LogVo lo = new LogVo();
 	
 		lo.setUrl(url);

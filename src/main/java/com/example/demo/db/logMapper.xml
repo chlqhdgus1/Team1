@@ -9,6 +9,6 @@
 	</select>
 	
 	<insert id="insertLog">
-		insert into log values(#{url}, #{ip}, #{time})
+		insert into log values(#{url}, #{ip}, #{time} )
 	</insert>
 </mapper>
