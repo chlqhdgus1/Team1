@@ -96,6 +96,5 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
-	</build>
-	폼이다		
+	</build>	
 </project>
