@@ -25,7 +25,7 @@ private JavaMailSender mailSender;
 	
 	public void setMailSender(JavaMailSender mailSender) {
 		this.mailSender = mailSender;
-	}
+	}    
 
 	@Scheduled(cron = "00 01 17 * * *")
 	public void pro() {
